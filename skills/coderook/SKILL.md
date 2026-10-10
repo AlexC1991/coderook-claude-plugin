@@ -12,7 +12,7 @@ down removes its files but keeps a record that it existed.
 
 This skill works through the **CodeRook connector**, which comes with this plugin (its tools are
 named `list_projects`, `list_versions`, and so on). If those tools are not available, the person
-needs to connect CodeRook: Claude offers it when the plugin is installed, and signing in happens on
+needs to connect CodeRook: Claude offers it when the plugin is added, and the person approves it on
 coderook.com.
 
 ## Finding things
@@ -22,7 +22,7 @@ coderook.com.
   the project's **current** version — after an undo that may not be the highest number.
 - `list_versions` shows which version is current, which are named releases, which are hidden, and
   which were taken down.
-- `list_files` lists one folder of a version (the top by default; pass `path` for a subfolder).
+- `list_files` lists one folder of a version (the top by default, or the folder named in `path`).
 - `read_file` returns up to 256 KB of a text file. Binary files are reported, not shown.
 - `compare_versions` lists the files added, changed and removed between two versions.
 - `search_public_projects` searches what people have made public.
@@ -40,7 +40,7 @@ sentence what will change and get the person's agreement.
 | Name a version / write notes | `name_version` | Naming a version for the first time needs admin rights. |
 | Make it a release people are told about | `release_version` | Watchers are notified. |
 | Hide a version from outsiders, or show it | `set_version_visibility` | `private` or `public`; showing needs admin rights. |
-| Go back to an earlier version | `undo` | Nothing is deleted or renumbered. The versions passed over stay in the history. |
+| Go back to an earlier version | `undo` | Nothing is deleted or renumbered. The versions it skips stay in the history. |
 | Remove files published by mistake | `take_down_version` with `confirm: true` | Permanent for the files. The current version can't be taken down — `undo` first. |
 | Change who can see the project | `set_project_visibility` | `private`, `unlisted` (anyone with the link) or `public`. Opening it up needs `confirm: true`. |
 
@@ -55,13 +55,13 @@ The usual order:
    keeps a record that it was there.
 
 Be honest about what this does and does not do: anyone who downloaded the files before they were
-taken down still has them. If what leaked lets someone sign in to another service, it must also be changed on that service.
+taken down still has them. If what leaked opens access to another service, it must also be changed on that service.
 
 ## When something is refused
 
 The tools answer with CodeRook's own message — for example that an action needs admin rights, that
 the current version can't be taken down, or that a project needs a username before it can be public.
-Pass the message on plainly and suggest the fix it names; do not retry the same call.
+Relay the message plainly and suggest the fix it names; do not retry the same call.
 
 ## Outside the connector
 
