@@ -1,0 +1,13 @@
+{
+  "name": "coderook",
+  "displayName": "CodeRook",
+  "version": "1.0.0",
+  "description": "Browse and manage your CodeRook projects from Claude: list projects and versions, read files, compare versions, and name, release, hide, undo or take down versions.",
+  "author": {
+    "name": "ACCA Gaming Productions",
+    "url": "https://coderook.com"
+  },
+  "homepage": "https://coderook.com/docs#connector",
+  "license": "Apache-2.0",
+  "keywords": ["version-control", "snapshots", "projects", "releases", "coderook"]
+}

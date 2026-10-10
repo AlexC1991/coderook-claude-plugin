@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "coderook": {
+      "type": "http",
+      "url": "https://api.coderook.com/mcp"
+    }
+  }
+}
