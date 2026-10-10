@@ -29,8 +29,8 @@ A project whose owner has set it so machines may not read it stays closed to the
 ## Setting it up
 
 Install the plugin, then connect CodeRook when Claude asks. You are sent to coderook.com to sign in
-and approve the connection; the page lists exactly what Claude will be able to do. The connection
-appears among your access tokens on coderook.com, where you can end it at any time.
+and approve the connection; the page lists exactly what Claude will be able to do. You can end the
+connection at any time from your account settings on coderook.com.
 
 Saving new versions still happens on your computer, with the CodeRook desktop app, the `cbx` command
 line, or `git push` to a CodeRook remote. Documentation: <https://coderook.com/docs#connector>.
@@ -40,8 +40,8 @@ line, or `git push` to a CodeRook remote. Documentation: <https://coderook.com/d
 - It runs no code on your machine. It contains one skill (instructions for Claude) and one remote
   MCP server entry.
 - The MCP server is CodeRook's own, at `https://api.coderook.com/mcp`. Claude sends it the tool
-  calls you ask for — for example a project name and a file path — over HTTPS, with the token you
-  approved. Nothing is sent anywhere else.
+  calls you ask for — for example a project name and a file path — over HTTPS, as the account you
+  approved it for. Nothing is sent anywhere else.
 - CodeRook does not receive your conversation with Claude, only the tool calls themselves. How
   CodeRook handles account data is in its [privacy policy](https://coderook.com/privacy).
 

@@ -9,5 +9,12 @@
   },
   "homepage": "https://coderook.com/docs#connector",
   "license": "Apache-2.0",
-  "keywords": ["version-control", "snapshots", "projects", "releases", "coderook"]
+  "keywords": [
+    "version-control",
+    "snapshots",
+    "projects",
+    "releases",
+    "coderook"
+  ],
+  "privacyPolicyUrl": "https://coderook.com/privacy"
 }

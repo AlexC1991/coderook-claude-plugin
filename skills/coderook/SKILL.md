@@ -55,8 +55,7 @@ The usual order:
    keeps a record that it was there.
 
 Be honest about what this does and does not do: anyone who downloaded the files before they were
-taken down still has them. If what leaked was a password or key, it must also be changed at its
-source.
+taken down still has them. If what leaked lets someone sign in to another service, it must also be changed on that service.
 
 ## When something is refused
 
