@@ -10,10 +10,10 @@ moment, so restoring one never depends on the versions around it. There is no st
 history to rewrite: undoing moves the project back without deleting anything, and taking a version
 down removes its files but keeps a record that it existed.
 
-This skill works through the **CodeRook connector** (its tools are named `list_projects`,
-`list_versions`, and so on). If those tools are not available, tell the person to add the
-connector in Settings → Connectors → Add custom connector, with the URL
-`https://api.coderook.com/mcp`, and sign in to CodeRook when asked.
+This skill works through the **CodeRook connector**, which comes with this plugin (its tools are
+named `list_projects`, `list_versions`, and so on). If those tools are not available, the person
+needs to connect CodeRook: Claude offers it when the plugin is installed, and signing in happens on
+coderook.com.
 
 ## Finding things
 
