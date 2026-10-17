@@ -38,7 +38,7 @@ sentence what will change and get the person's agreement.
 | They want to… | Use | Notes |
 |---|---|---|
 | Name a version / write notes | `name_version` | Naming a version for the first time needs admin rights. |
-| Make it a release people are told about | `release_version` | Watchers are notified. |
+| Make it a release people are told about | `release_version` | Watchers are notified. `downloads_public: true` offers what is attached without the source; ask first, it publishes files. |
 | Hide a version from outsiders, or show it | `set_version_visibility` | `private` or `public`; showing needs admin rights. |
 | Go back to an earlier version | `undo` | Nothing is deleted or renumbered. The versions it skips stay in the history. |
 | Remove files published by mistake | `take_down_version` with `confirm: true` | Permanent for the files. The current version can't be taken down — `undo` first. |
@@ -71,9 +71,7 @@ generic provider then reads the project's update feed directly, and any other up
 project's latest release as JSON: the version, notes, and every file with its size, SHA-256 and
 address.
 
-`get_update_feed` says whether a project is ready and names what to fix: a private project (updaters
-have no account, so ship releases from a public one), a release name that is not a version number, or
-nothing attached. When it is ready, it returns the exact `publish` entry to put in the app's
+`get_update_feed` says whether a project is ready and names what to fix: a private project (updaters have no account, so the project must be public), a newest release that is not public yet, a release name that is not a version number, or nothing attached. The source does not have to be public: `release_version` with `downloads_public: true` (or `cbx release --downloads public`) offers the release's downloads and feed while the version's files stay private, so one project ships its own app. When it is ready, it returns the exact `publish` entry to put in the app's
 electron-builder settings — use that rather than writing the address out by hand. Naming the release
 is `release_version`; attaching the installer is `cbx attach <file>` on the person's machine, since
 the connector does not upload files.
