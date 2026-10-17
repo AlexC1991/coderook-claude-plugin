@@ -15,6 +15,7 @@ This plugin gives Claude the CodeRook connector and a skill that explains how to
 - list the files in a version, and read a text file at any version
 - compare two versions to see which files were added, changed or removed
 - search the projects people have made public
+- check whether a project can serve its app's updates, and get the feed address to give the app
 
 **Manage** (Claude asks you before every one of these):
 

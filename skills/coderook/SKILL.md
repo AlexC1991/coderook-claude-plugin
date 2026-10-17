@@ -1,6 +1,6 @@
 ---
 name: coderook
-description: Work with projects on CodeRook, a version host where every version is a complete snapshot, through the CodeRook connector. Use when someone asks about their CodeRook projects, wants to see what is in a version, read a file, compare two versions, find public projects, or manage versions — name or release one, hide or show it, undo a project to an earlier version, take down files published by mistake, or change who can see a project.
+description: Work with projects on CodeRook, a version host where every version is a complete snapshot, through the CodeRook connector. Use when someone asks about their CodeRook projects, wants to see what is in a version, read a file, compare two versions, find public projects, or manage versions — name or release one, hide or show it, undo a project to an earlier version, take down files published by mistake, or change who can see a project. Also use when someone wants their app to update itself from CodeRook (auto-update, electron-updater, an update feed) or asks whether a project is ready to serve its app's updates.
 ---
 
 # CodeRook
@@ -62,6 +62,21 @@ taken down still has them. If what leaked opens access to another service, it mu
 The tools answer with CodeRook's own message — for example that an action needs admin rights, that
 the current version can't be taken down, or that a project needs a username before it can be public.
 Relay the message plainly and suggest the fix it names; do not retry the same call.
+
+## Serving an app's updates
+
+A public project can be where its app checks for updates. Its newest release has to be named like a
+version number (`1.2.3` or `v1.2.3`) and have the installers attached to it. electron-updater's
+generic provider then reads the project's update feed directly, and any other updater can read the
+project's latest release as JSON: the version, notes, and every file with its size, SHA-256 and
+address.
+
+`get_update_feed` says whether a project is ready and names what to fix: a private project (updaters
+have no account, so ship releases from a public one), a release name that is not a version number, or
+nothing attached. When it is ready, it returns the exact `publish` entry to put in the app's
+electron-builder settings — use that rather than writing the address out by hand. Naming the release
+is `release_version`; attaching the installer is `cbx attach <file>` on the person's machine, since
+the connector does not upload files.
 
 ## Outside the connector
 
