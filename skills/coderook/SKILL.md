@@ -81,3 +81,7 @@ the connector does not upload files.
 Saving new versions from a folder happens on the person's machine, with the CodeRook desktop app, the
 `cbx` command line (`npm install -g @coderook/cli`, then `cbx submit`), or plain `git push` to a
 CodeRook remote. The connector manages what is already on CodeRook; it does not upload files.
+
+Mod repositories for games are also on the person's machine: `cbx mods publish <folder> --repo
+<game>` uploads a mod and waits for its checks, and `cbx mods create` sets up a repository for a
+game. Guide: https://coderook.com/docs#mod-repositories
