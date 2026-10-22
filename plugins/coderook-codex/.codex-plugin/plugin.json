@@ -6,20 +6,23 @@
       "Write"
     ],
     "category": "Developer Tools",
-    "composerIcon": "./assets/coderook.svg",
+    "composerIcon": "./assets/coderook.png",
     "defaultPrompt": "Show my CodeRook projects and their latest versions.",
-    "developerName": "Alexzander  Cowell",
+    "developerName": "Alexzander Cowell",
     "displayName": "CodeRook",
-    "logo": "./assets/coderook.svg",
+    "logo": "./assets/coderook.png",
     "longDescription": "Work on private CodeRook drafts from either computer through MCP. Read, search, edit and review remote files, save complete versions without downloading whole projects, and run administrator-configured hosted or native recipes. Deployments require an authorised named target and saved content. Remote workspaces share project state and handover notes across clients; native testing requires a connected compatible runner.",
     "shortDescription": "CodeRook project companion",
-    "websiteURL": "https://coderook.com"
+    "websiteURL": "https://coderook.com",
+    "supportURL": "https://coderook.com/contact",
+    "privacyPolicyURL": "https://coderook.com/privacy",
+    "termsOfServiceURL": "https://coderook.com/terms"
   },
   "name": "coderook-codex",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Read, edit, check and save private CodeRook workspaces remotely from Codex.",
   "author": {
-    "name": "Alexzander  Cowell",
+    "name": "Alexzander Cowell",
     "email": "alexcowell112@gmail.com",
     "url": "https://coderook.com"
   },

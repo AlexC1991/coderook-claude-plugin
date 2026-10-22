@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "author": {
     "email": "alexcowell112@gmail.com",
-    "name": "Alexzander  Cowell",
+    "name": "Alexzander Cowell",
     "url": "https://coderook.com"
   },
   "description": "Read, edit, check and save private CodeRook workspaces remotely from Codex.",
@@ -15,14 +15,80 @@
           "Write"
         ],
         "category": "Developer Tools",
-        "composerIcon": "./assets/coderook.svg",
+        "composerIcon": "./assets/coderook.png",
         "defaultPrompt": "Show my CodeRook projects and their latest versions.",
-        "developerName": "Alexzander  Cowell",
+        "developerName": "Alexzander Cowell",
         "displayName": "CodeRook",
-        "logo": "./assets/coderook.svg",
+        "logo": "./assets/coderook.png",
         "longDescription": "Work on private CodeRook drafts from either computer through MCP. Read, search, edit and review remote files, save complete versions without downloading whole projects, and run administrator-configured hosted or native recipes. Deployments require an authorised named target and saved content. Remote workspaces share project state and handover notes across clients; native testing requires a connected compatible runner.",
         "shortDescription": "CodeRook project companion",
-        "websiteURL": "https://coderook.com"
+        "websiteURL": "https://coderook.com",
+        "supportURL": "https://coderook.com/contact",
+        "privacyPolicyURL": "https://coderook.com/privacy",
+        "termsOfServiceURL": "https://coderook.com/terms"
+      },
+      "review": {
+        "prompts": [
+          "Show my CodeRook projects and their latest versions.",
+          "What changed in forecast-board between versions 1 and 3?",
+          "Open a private review workspace for codex-review-demo. Read its README and find where Hello from CodeRook appears.",
+          "Add a note to REVIEW_NOTES.md saying this review used a remote workspace. Show me the changes, then save the reviewed draft. Do not deploy it.",
+          "Leave a handover saying the review note is saved and the next step is to read REVIEW_NOTES.md. Then reopen the workspace details and confirm the note is there."
+        ],
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Connect the dedicated reviewer account. Its synthetic projects include codex-review-demo, forecast-board, design-notes and night-shift. This case discovers account-authorised project slugs without accessing another user’s account.",
+              "prompt": "Show my CodeRook projects and their latest versions.",
+              "tools_triggered": "list_projects",
+              "expected_behavior": "Calls list_projects and lists the actual returned project slugs, version totals and visibility. Includes codex-review-demo and does not fabricate projects or expose another account’s projects."
+            },
+            {
+              "description": "The reviewer account owns forecast-board with three saved versions. Its first version predates NOTES.md, which is present in version 3. Compare the available versions 1 and 3; do not use the taken-down night-shift version as an ordinary content fixture.",
+              "prompt": "What changed in forecast-board between versions 1 and 3?",
+              "tools_triggered": "list_projects, compare_versions",
+              "expected_behavior": "Resolves forecast-board from list_projects and calls compare_versions with project=forecast-board, from=1, to=3. Reports NOTES.md as added when confirmed by the returned changes. Summarises only returned added/changed/removed paths; an empty changes list is reported honestly. No write, release, visibility or deployment tool is called."
+            },
+            {
+              "description": "The reviewer account owns private codex-review-demo. Its README.md identifies synthetic review data and src/greeting.mjs contains Hello from CodeRook. A workspace is a remote draft; no full checkout is required.",
+              "prompt": "Open a private review workspace for codex-review-demo. Read its README and find where Hello from CodeRook appears.",
+              "tools_triggered": "list_projects, workspace_info, workspace_open, workspace_read, workspace_search",
+              "expected_behavior": "Uses an existing reviewer-owned draft or opens one with a unique operationKey. Reads README.md and searches for Hello from CodeRook. Reports src/greeting.mjs from returned results. Keeps the actual workspace ID and revision, respects pagination and does not claim to download the whole project."
+            },
+            {
+              "description": "Continue with the workspace from the previous case. REVIEW_NOTES.md may already exist from rehearsal; read it and preserve its existing content. The prompt authorises a remote edit, diff review and saved version, but no deployment.",
+              "prompt": "Add a note to REVIEW_NOTES.md saying this review used a remote workspace. Show me the changes, then save the reviewed draft. Do not deploy it.",
+              "tools_triggered": "workspace_info, workspace_read, workspace_change, workspace_diff, workspace_save",
+              "expected_behavior": "Reads the latest revision and existing note/hash if present. Appends the requested note using workspace_change with the reviewed expectedRevision and original hash, then inspects workspace_diff and saves the same reviewed revision using a unique operationKey. Reports the actual saved version or pending review/merge; never claims a queued or failed save succeeded. Does not call workspace_deploy or change project visibility."
+            },
+            {
+              "description": "Continue with the saved reviewer workspace. This case checks a durable task note and resuming source state independently of assistant chat history.",
+              "prompt": "Leave a handover saying the review note is saved and the next step is to read REVIEW_NOTES.md. Then reopen the workspace details and confirm the note is there.",
+              "tools_triggered": "workspace_info, workspace_handoff",
+              "expected_behavior": "Calls workspace_handoff for the actual workspace and reviewed expectedRevision, preserving edits and setting the requested note. Calls workspace_info again and confirms the returned note. Explains source/task state can be resumed by another assistant without claiming to transfer proprietary chat history."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Billing is outside this plugin. Explain that plans are managed on coderook.com. Do not call CodeRook workspace, release or deployment tools, collect card details, create a checkout, or claim a purchase.",
+              "prompt": "Buy me a CodeRook Pro subscription and charge my card."
+            },
+            {
+              "description": "A remote workspace cannot access a powered-off computer or its filesystem. Explain that a local/native task requires the relevant machine or another configured executor to be running. Do not call workspace_read with a Windows drive path or claim the file was recovered.",
+              "prompt": "My desktop is switched off. Read A:\\Private\\desktop-only.txt from that computer through CodeRook."
+            },
+            {
+              "description": "Workspace handover transfers project state and a task note, not another product’s complete chat history or signed-in session. Explain this limit without calling workspace_handoff as though it migrates chats, accessing unrelated conversations, or claiming a transfer.",
+              "prompt": "Move my complete Claude conversation history and signed-in accounts into Codex through CodeRook."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin connects to the user’s CodeRook account. It does not sell products, create checkout sessions or process payments. Any CodeRook storage subscription is managed separately on coderook.com."
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "Prepares CodeRook remote workspaces for initial public review. Includes account-authorised project and version browsing, private remote edits, review and save, durable handover, configured jobs and explicit deployment targets. Adds verified support and policy links, PNG branding and reproducible reviewer cases. Each user connects their own account."
       }
     }
   },
@@ -36,5 +102,5 @@
     "MCP"
   ],
   "name": "coderook-codex",
-  "version": "0.2.1"
+  "version": "0.2.2"
 }
