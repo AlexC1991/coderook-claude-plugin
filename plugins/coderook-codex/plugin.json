@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "email": "alexcowell112@gmail.com",
+    "name": "Alexzander  Cowell",
+    "url": "https://coderook.com"
+  },
+  "description": "Read, edit, check and save private CodeRook workspaces remotely from Codex.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "brandColor": "#E8A13F",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "category": "Developer Tools",
+        "composerIcon": "./assets/coderook.svg",
+        "defaultPrompt": "Show my CodeRook projects and their latest versions.",
+        "developerName": "Alexzander  Cowell",
+        "displayName": "CodeRook",
+        "logo": "./assets/coderook.svg",
+        "longDescription": "Work on private CodeRook drafts from either computer through MCP. Read, search, edit and review remote files, save complete versions without downloading whole projects, and run administrator-configured hosted or native recipes. Deployments require an authorised named target and saved content. Remote workspaces share project state and handover notes across clients; native testing requires a connected compatible runner.",
+        "shortDescription": "CodeRook project companion",
+        "websiteURL": "https://coderook.com"
+      }
+    }
+  },
+  "homepage": "https://coderook.com",
+  "keywords": [
+    "CodeRook",
+    "version control",
+    "repositories",
+    "websites",
+    "remote workspaces",
+    "MCP"
+  ],
+  "name": "coderook-codex",
+  "version": "0.2.1"
+}

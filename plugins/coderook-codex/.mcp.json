@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "coderook": {
+      "type": "streamable-http",
+      "url": "https://api.coderook.com/mcp",
+      "headers": {},
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            },
+            "baseScopes": [
+              "projects:read",
+              "projects:write",
+              "workspaces:write",
+              "workspaces:run",
+              "workspaces:deploy"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

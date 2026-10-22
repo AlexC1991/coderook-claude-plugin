@@ -1,0 +1,12 @@
+{
+  "name": "coderook-claude",
+  "owner": { "name": "ACCA Gaming Productions", "url": "https://coderook.com" },
+  "plugins": [
+    {
+      "name": "coderook",
+      "source": "./",
+      "version": "1.4.1",
+      "description": "Work on your own CodeRook projects and private remote drafts through MCP."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "name": "coderook",
   "displayName": "CodeRook",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Read, edit, check and save private CodeRook workspaces remotely from Claude, with configured hosted/native jobs and explicit deployment targets.",
   "author": {
     "name": "ACCA Gaming Productions",

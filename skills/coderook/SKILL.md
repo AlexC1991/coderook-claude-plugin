@@ -43,12 +43,12 @@ A preview uses the project's configured preview recipe and supported preview/art
 
 Use workspace_handoff to retain the current task, decisions, changed files, last applicable checks and next step. Archive only when appropriate; accepted edits remain recoverable. This transfers project state, not proprietary Claude/Codex chat history.
 
-Use selected artifacts or an explicitly configured local/native operation when browser, Electron, ZT1, game files or Lab access is needed on a PC. Do not presume that the original desktop is on or that its drive letters exist on the laptop.
+Use selected artifacts or an explicitly configured local/native operation when browser, desktop application, game data or local tool access is needed on a PC. Do not presume that the original desktop is on or that its drive letters exist on the laptop.
 
 ## Existing saved-version and local workflows
 
 The connector also supports listing/reading/comparing saved versions, naming and releasing them, visibility, undo and takedown through the tools actually exposed. Preserve project privacy. Require clear authorisation for publication or destructive actions; never treat reading or saving as a request to make a project public.
 
-If the user explicitly chooses a local checkout, follow its existing CodeRook CLI/Git workflow and inspect its state before changing it. GitHub hosting is not required. Project-specific restrictions, including keeping VoxAI_Website source off GitHub, still apply.
+If the user explicitly chooses a local checkout, follow its existing CodeRook CLI/Git workflow and inspect its state before changing it. GitHub hosting is not required. Follow the selected project's source-hosting, privacy and deployment restrictions.
 
 If a connection lacks workspace scopes, reconnect through the normal OAuth flow. The CLI's original cbx mcp mode remains read-only; its explicit remote workspace mode is cbx mcp --workspaces. Do not change account permissions or sign in with somebody else's credentials to bypass an access error.

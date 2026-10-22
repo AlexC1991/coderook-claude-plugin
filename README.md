@@ -1,4 +1,26 @@
-# CodeRook for Claude
+# CodeRook for Claude and Codex
+
+These connectors and the remote workspace workflow are for **all CodeRook users**. Each person connects their own account and can access only the projects allowed by that account. Private drafts belong to the person who opened them; installing a connector never installs another user's workspace, source, recipes, credentials or task notes. Workspace names are chosen by each user.
+
+## Install for Claude Code
+
+```text
+/plugin marketplace add AlexC1991/coderook-claude-plugin
+/plugin install coderook@coderook-claude
+```
+
+The Claude plugin remains at the repository root. Its remote MCP connector is also usable from Claude's connector settings at `https://api.coderook.com/mcp`.
+
+## Install for Codex
+
+```text
+codex plugin marketplace add AlexC1991/coderook-claude-plugin
+codex plugin add coderook-codex@coderook
+```
+
+The public Codex package lives under `plugins/coderook-codex` and is catalogued in `.agents/plugins/marketplace.json`. This is a public repository marketplace, separate from the universal reviewed plugins directory. Connect your own CodeRook account through OAuth after installing. No project files or account credentials ship in either plugin.
+
+Both assistants use the same remote API and permission model. Work in the same draft across clients when signed in as the same authorised user, or open independent drafts for concurrent tasks.
 
 Work with your [CodeRook](https://coderook.com) projects from Claude. CodeRook is a version host
 where every version is a complete snapshot of a project: restoring one never depends on the versions

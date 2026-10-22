@@ -1,0 +1,20 @@
+{
+  "name": "coderook",
+  "interface": {
+    "displayName": "CodeRook"
+  },
+  "plugins": [
+    {
+      "name": "coderook-codex",
+      "source": {
+        "source": "local",
+        "path": "./plugins/coderook-codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

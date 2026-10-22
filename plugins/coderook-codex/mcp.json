@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "coderook": {
+      "type": "streamable-http",
+      "url": "https://api.coderook.com/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            },
+            "baseScopes": [
+              "projects:read",
+              "projects:write",
+              "workspaces:write",
+              "workspaces:run",
+              "workspaces:deploy"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
