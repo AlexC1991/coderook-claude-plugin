@@ -84,7 +84,8 @@
           ]
         },
         "commerce": false,
-        "commerce_description": "The plugin connects to the user’s CodeRook account. It does not sell products, create checkout sessions or process payments. Any CodeRook storage subscription is managed separately on coderook.com."
+        "commerce_description": "The plugin connects to the user’s CodeRook account. It does not sell products, create checkout sessions or process payments. Any CodeRook storage subscription is managed separately on coderook.com.",
+        "demo_recording_url": "https://github.com/AlexC1991/coderook-claude-plugin/releases/download/codex-v0.2.2/coderook-codex-0.2.2-demo.mp4"
       },
       "publication": {
         "countries": [],
