@@ -2,7 +2,10 @@
   "mcpServers": {
     "coderook": {
       "type": "http",
-      "url": "https://api.coderook.com/mcp"
+      "url": "https://api.coderook.com/mcp",
+      "oauth": {
+        "scopes": "projects:read projects:write workspaces:write workspaces:run workspaces:deploy"
+      }
     }
   }
 }

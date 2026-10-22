@@ -1,8 +1,8 @@
 {
   "name": "coderook",
   "displayName": "CodeRook",
-  "version": "1.3.0",
-  "description": "Browse and manage your CodeRook projects from Claude: list projects and versions, read files, compare versions, name, release, hide, undo or take down versions, and check whether a project can serve its app's updates.",
+  "version": "1.4.0",
+  "description": "Read, edit, check and save private CodeRook workspaces remotely from Claude, with configured hosted/native jobs and explicit deployment targets.",
   "author": {
     "name": "ACCA Gaming Productions",
     "url": "https://coderook.com"
