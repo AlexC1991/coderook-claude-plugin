@@ -43,7 +43,7 @@ This plugin gives Claude the CodeRook connector and a skill that explains how to
 
 - name a version, add notes, or release it
 - hide a version from people outside the project, or show it again
-- undo a project to an earlier version â€” nothing is deleted or renumbered
+- undo a project to an earlier version — nothing is deleted or renumbered
 - take down a version's files, for something published by mistake (needs a second, explicit yes)
 - change who can see a project: private, unlisted or public (opening it up needs a second yes)
 
@@ -58,6 +58,8 @@ connection at any time from your account settings on coderook.com.
 Remote drafts can now save complete versions through the connector. Local projects can still use the desktop app, `cbx` or Git. Documentation: <https://coderook.com/docs#connector>.
 
 ## Remote workspaces
+
+See the [general workspace setup guide](REMOTE_WORKSPACES.md) for recipe configuration, permissions and deployment setup. Optional CLI packages are available on the [release page](https://github.com/AlexC1991/coderook-claude-plugin/releases/latest); install a downloaded package with `npm install --global ./coderook-cli-0.38.1.tgz`.
 
 From Claude Desktop's Code tab, open a CodeRook workspace through the connector. Read and search selected files, edit the private draft, review its diff, run configured checks, then save a complete version. The full project and its build dependencies stay off the laptop. The desktop PC can be off while hosted jobs run.
 
@@ -74,7 +76,7 @@ Windows builds and native app testing use a selected connected Windows `cbx runn
 - It runs no code on your machine. It contains one skill (instructions for Claude) and one remote
   MCP server entry.
 - The MCP server is CodeRook's own, at `https://api.coderook.com/mcp`. Claude sends it the tool
-  calls you ask for â€” for example a project name and a file path â€” over HTTPS, as the account you
+  calls you ask for — for example a project name and a file path — over HTTPS, as the account you
   approved it for. Nothing is sent anywhere else.
 - CodeRook does not receive your conversation with Claude, only the tool calls themselves. How
   CodeRook handles account data is in its [privacy policy](https://coderook.com/privacy).
